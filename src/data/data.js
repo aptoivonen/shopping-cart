@@ -25,4 +25,8 @@ const data = [
   },
 ];
 
+export const productExists = (id) => {
+  return !!data.find((product) => product.id === id);
+};
+
 export default data;
