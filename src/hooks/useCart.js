@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import DATA from "../data/data";
 
 export const ACTIONS = {
   ADD_PRODUCT: "addProduct",
@@ -17,16 +18,17 @@ const increaseProductQuantity = (cartProducts, id) => {
 };
 
 const addProduct = (cartProducts, id) => {
-  console.log("add product", id);
-  return [...cartProducts, { id, quantity: 1 }];
+  const foundProduct = DATA.find((product) => product.id === id);
+  return foundProduct
+    ? [...cartProducts, { ...foundProduct, quantity: 1 }]
+    : [...cartProducts];
 };
 
 const filterProduct = (cartProducts, id) => {
-  return cartProducts.filter((product) => product.id === id);
+  return cartProducts.filter((product) => product.id !== id);
 };
 
 const reducer = (cartProducts, { type, payload: { id } }) => {
-  console.log("reducer", type, id);
   switch (type) {
     case ACTIONS.ADD_PRODUCT:
       return productExists(cartProducts, id)
