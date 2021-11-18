@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { ACTIONS } from "../hooks/useCart";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 const Cart = ({ isShown, close }) => {
@@ -16,7 +17,17 @@ const Cart = ({ isShown, close }) => {
             {products.map((product) => (
               <li key={product.id}>
                 <p style={{ fontWeight: "bold" }}>{product.title}</p>
-                <p></p>
+                <p>Qty: {product.quantity}</p>
+                <button
+                  onClick={() => {
+                    dispatch({
+                      type: ACTIONS.REMOVE_PRODUCT,
+                      payload: { id: product.id },
+                    });
+                  }}
+                >
+                  Remove
+                </button>
               </li>
             ))}
           </ul>
