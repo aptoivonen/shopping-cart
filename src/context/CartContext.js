@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import useApp from "../hooks/useApp";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [cartProducts, dispatch] = useApp();
 
   return (
@@ -12,5 +12,3 @@ const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
-export default CartProvider;
