@@ -1,10 +1,13 @@
 import { useReducer } from "react";
-import { productExists } from "../data/data";
 
 export const ACTIONS = {
   ADD_PRODUCT: "addProduct",
   REMOVE_PRODUCT: "removeProduct",
   // TODO: increment/decrement quantity or setQuantity action
+};
+
+const productExists = (cartProducts, id) => {
+  return !!cartProducts.find((product) => product.id === id);
 };
 
 const increaseProductQuantity = (cartProducts, id) => {
@@ -14,6 +17,7 @@ const increaseProductQuantity = (cartProducts, id) => {
 };
 
 const addProduct = (cartProducts, id) => {
+  console.log("add product", id);
   return [...cartProducts, { id, quantity: 1 }];
 };
 
@@ -22,9 +26,10 @@ const filterProduct = (cartProducts, id) => {
 };
 
 const reducer = (cartProducts, { type, payload: { id } }) => {
+  console.log("reducer", type, id);
   switch (type) {
     case ACTIONS.ADD_PRODUCT:
-      return productExists(id)
+      return productExists(cartProducts, id)
         ? increaseProductQuantity(cartProducts, id)
         : addProduct(cartProducts, id);
     case ACTIONS.REMOVE_PRODUCT:
