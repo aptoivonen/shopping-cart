@@ -14,9 +14,9 @@ const Cart = ({ isShown, close }) => {
         {products.length > 0 ? (
           <ul>
             {products.map((product) => (
-              <li>
+              <li key={product.id}>
                 <p style={{ fontWeight: "bold" }}>{product.title}</p>
-                <p>{product.price / 100}</p>
+                <p></p>
               </li>
             ))}
           </ul>
