@@ -4,19 +4,19 @@ import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import DATA from "./data/data";
-import useApp from "./hooks/useApp";
+import CartProvider from "./context/CartContext";
 
 function App() {
-  const [cartProducts, dispatch] = useApp();
-
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="products" element={<Products products={DATA} />} />
-        </Route>
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="products" element={<Products products={DATA} />} />
+          </Route>
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
   );
 }
