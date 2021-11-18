@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useCart = () => {
+const useOffcanvas = () => {
   const [isShown, setIsShown] = useState(false);
 
   const close = () => {
@@ -16,4 +16,4 @@ const useCart = () => {
   return { isShown, show, close };
 };
 
-export default useCart;
+export default useOffcanvas;
