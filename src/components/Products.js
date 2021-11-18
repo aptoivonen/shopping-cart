@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { ACTIONS } from "../hooks/useCart";
+import DATA from "../data/data";
 
-const Products = ({ products }) => {
+const Products = () => {
   const { dispatch } = useContext(CartContext);
 
   return (
     <>
       <h1>Products</h1>
       <ul>
-        {products.map((product) => (
+        {DATA.map((product) => (
           <li key={product.id}>
             <p>{product.title}</p>
             <button
