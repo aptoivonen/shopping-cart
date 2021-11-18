@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { productExists } from "../data/data";
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_PRODUCT: "addProduct",
   REMOVE_PRODUCT: "removeProduct",
   // TODO: increment/decrement quantity or setQuantity action
