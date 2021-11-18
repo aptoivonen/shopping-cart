@@ -1,14 +1,28 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 const Cart = ({ isShown, close }) => {
+  const { products, dispatch } = useContext(CartContext);
+
   return (
     <Offcanvas show={isShown} onHide={close} placement="end">
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        Some text as placeholder. In real life you can have the elements you
-        have chosen. Like, text, images, lists, etc.
+        {products.length > 0 ? (
+          <ul>
+            {products.map((product) => (
+              <li>
+                <p style={{ fontWeight: "bold" }}>{product.title}</p>
+                <p>{product.price / 100}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Your cart is empty. Add some products to it.</p>
+        )}
       </Offcanvas.Body>
     </Offcanvas>
   );
