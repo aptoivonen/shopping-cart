@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { ACTIONS } from "../hooks/useCart";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
 
 const Cart = ({ isShown, close }) => {
   const { products, dispatch } = useContext(CartContext);
@@ -32,7 +34,17 @@ const Cart = ({ isShown, close }) => {
             ))}
           </ul>
         ) : (
-          <p>Your cart is empty. Add some products to it.</p>
+          <div>
+            <p>Your cart is empty. Add some products to it.</p>
+            <Button
+              as={NavLink}
+              to="/products"
+              variant="primary"
+              onClick={close}
+            >
+              Go Shopping
+            </Button>
+          </div>
         )}
       </Offcanvas.Body>
     </Offcanvas>
