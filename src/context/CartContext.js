@@ -4,10 +4,10 @@ import useApp from "../hooks/useApp";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartProducts, dispatch] = useApp();
+  const [products, dispatch] = useApp();
 
   return (
-    <CartContext.Provider value={{ cartProducts, dispatch }}>
+    <CartContext.Provider value={{ products, dispatch }}>
       {children}
     </CartContext.Provider>
   );
