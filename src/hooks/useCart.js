@@ -34,8 +34,8 @@ const reducer = (cartProducts, { type, payload: { id } }) => {
   }
 };
 
-const useApp = () => {
+const useCart = () => {
   return useReducer(reducer, []);
 };
 
-export default useApp;
+export default useCart;
