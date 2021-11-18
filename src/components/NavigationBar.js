@@ -16,8 +16,8 @@ const NavigationBar = () => {
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/about">
-              About
+              <Nav.Link as={NavLink} to="/products">
+                Products
             </Nav.Link>
             <Nav.Link as={NavLink} to="/checkout">
               Checkout
