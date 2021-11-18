@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import DATA from "./data/data";
-import CartProvider from "./context/CartContext";
+import CartProvider from "./context/CartProvider";
 
 function App() {
   return (
