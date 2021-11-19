@@ -26,7 +26,30 @@ const Cart = () => {
             {products.map((product) => (
               <li key={product.id}>
                 <p style={{ fontWeight: "bold" }}>{product.title}</p>
-                <p>Qty: {product.quantity}</p>
+                <p>
+                  Qty:{" "}
+                  <button
+                    onClick={() =>
+                      dispatch({
+                        type: ACTIONS.DECREASE_PRODUCT_QUANTITY,
+                        payload: { id: product.id },
+                      })
+                    }
+                  >
+                    -
+                  </button>{" "}
+                  {product.quantity}
+                  <button
+                    onClick={() =>
+                      dispatch({
+                        type: ACTIONS.INCREASE_PRODUCT_QUANTITY,
+                        payload: { id: product.id },
+                      })
+                    }
+                  >
+                    +
+                  </button>
+                </p>
                 <button
                   onClick={() => {
                     dispatch({
