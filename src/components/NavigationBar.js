@@ -19,7 +19,7 @@ const NavigationBar = () => {
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand as={NavLink} to="/">
-            Shopping App
+            Awesome T-Shirt Shop
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
