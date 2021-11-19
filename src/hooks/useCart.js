@@ -29,23 +29,30 @@ const filterProduct = (cartProducts, id) => {
   return cartProducts.filter((product) => product.id !== id);
 };
 
-const reducer = (state, { type, payload: { id, quantity } }) => {
-  const { cartProducts, showCart } = state;
+const reducer = (state, { type, payload: { id, quantity } = {} }) => {
+  const { cartProducts } = state;
   switch (type) {
     case ACTIONS.ADD_PRODUCT:
       if (quantity === 0) {
-        return { ...state, cartProducts: filterProduct(cartProducts, id) };
+        return {
+          ...state,
+          cartProducts: filterProduct(cartProducts, id),
+          showCart: true,
+        };
       }
       return {
         ...state,
         cartProducts: productExists(cartProducts, id)
           ? increaseProductQuantity(cartProducts, id)
           : addProduct(cartProducts, id),
+        showCart: true,
       };
     case ACTIONS.REMOVE_PRODUCT:
       return { ...state, cartProducts: filterProduct(cartProducts, id) };
     case ACTIONS.SHOW_CART:
+      return { ...state, showCart: true };
     case ACTIONS.CLOSE_CART:
+      return { ...state, showCart: false };
     default:
       throw new Error(`No such action type: ${type}`);
   }

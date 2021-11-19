@@ -5,14 +5,18 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
-const Cart = ({ isShown, close }) => {
+const Cart = () => {
   const {
     state: { cartProducts: products, showCart },
     dispatch,
   } = useContext(CartContext);
 
+  const closeCart = () => {
+    dispatch({ type: ACTIONS.CLOSE_CART });
+  };
+
   return (
-    <Offcanvas show={isShown} onHide={close} placement="end">
+    <Offcanvas show={showCart} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
@@ -43,7 +47,7 @@ const Cart = ({ isShown, close }) => {
               as={NavLink}
               to="/products"
               variant="primary"
-              onClick={close}
+              onClick={closeCart}
             >
               Go Shopping
             </Button>

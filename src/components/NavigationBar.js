@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
-import useOffcanvas from "../hooks/useOffcanvas";
+import { CartContext } from "../context/CartContext";
+import { ACTIONS } from "../hooks/useCart";
 import Cart from "./Cart";
 
 const NavigationBar = () => {
-  const { isShown, show, close } = useOffcanvas();
+  const { dispatch } = useContext(CartContext);
 
   return (
     <>
@@ -24,12 +26,14 @@ const NavigationBar = () => {
               <Nav.Link as={NavLink} to="/products">
                 Products
               </Nav.Link>
-              <Nav.Link onClick={show}>Checkout</Nav.Link>
+              <Nav.Link onClick={() => dispatch({ type: ACTIONS.SHOW_CART })}>
+                Checkout
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Cart isShown={isShown} close={close} />
+      <Cart />
     </>
   );
 };
