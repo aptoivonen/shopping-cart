@@ -10,6 +10,10 @@ import Cart from "./Cart";
 const NavigationBar = () => {
   const { dispatch } = useContext(CartContext);
 
+  const showCart = () => {
+    dispatch({ type: ACTIONS.SHOW_CART });
+  };
+
   return (
     <>
       <Navbar expand="lg">
@@ -20,15 +24,10 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={NavLink} to="/">
-                Home
+              <Nav.Link as={NavLink} to="/shop">
+                Shop
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/products">
-                Products
-              </Nav.Link>
-              <Nav.Link onClick={() => dispatch({ type: ACTIONS.SHOW_CART })}>
-                Checkout
-              </Nav.Link>
+              <Nav.Link onClick={showCart}>Checkout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
