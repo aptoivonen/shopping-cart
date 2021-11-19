@@ -4,10 +4,10 @@ import useCart from "../hooks/useCart";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [products, dispatch] = useCart();
+  const [state, dispatch] = useCart();
 
   return (
-    <CartContext.Provider value={{ products, dispatch }}>
+    <CartContext.Provider value={{ state, dispatch }}>
       {children}
     </CartContext.Provider>
   );

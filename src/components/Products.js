@@ -17,7 +17,7 @@ const Products = () => {
               onClick={() => {
                 dispatch({
                   type: ACTIONS.ADD_PRODUCT,
-                  payload: { id: product.id, quantity: 1 },
+                  payload: { id: product.id },
                 });
               }}
             >

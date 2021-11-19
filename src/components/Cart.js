@@ -6,7 +6,10 @@ import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
 const Cart = ({ isShown, close }) => {
-  const { products, dispatch } = useContext(CartContext);
+  const {
+    state: { cartProducts: products, showCart },
+    dispatch,
+  } = useContext(CartContext);
 
   return (
     <Offcanvas show={isShown} onHide={close} placement="end">

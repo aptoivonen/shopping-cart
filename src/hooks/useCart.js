@@ -4,24 +4,24 @@ import DATA from "../data/data";
 export const ACTIONS = {
   ADD_PRODUCT: "addProduct",
   REMOVE_PRODUCT: "removeProduct",
+  SHOW_CART: "showCart",
+  CLOSE_CART: "closeCart",
 };
 
 const productExists = (cartProducts, id) => {
   return !!cartProducts.find((product) => product.id === id);
 };
 
-const increaseProductQuantity = (cartProducts, id, quantity) => {
+const increaseProductQuantity = (cartProducts, id) => {
   return cartProducts.map((product) =>
-    product.id === id
-      ? { ...product, quantity: product.quantity + quantity }
-      : product
+    product.id === id ? { ...product, quantity: product.quantity + 1 } : product
   );
 };
 
-const addProduct = (cartProducts, id, quantity) => {
+const addProduct = (cartProducts, id) => {
   const foundProduct = DATA.find((product) => product.id === id);
   return foundProduct
-    ? [...cartProducts, { ...foundProduct, quantity }]
+    ? [...cartProducts, { ...foundProduct, quantity: 1 }]
     : [...cartProducts];
 };
 
@@ -29,24 +29,30 @@ const filterProduct = (cartProducts, id) => {
   return cartProducts.filter((product) => product.id !== id);
 };
 
-const reducer = (cartProducts, { type, payload: { id, quantity } }) => {
+const reducer = (state, { type, payload: { id, quantity } }) => {
+  const { cartProducts, showCart } = state;
   switch (type) {
     case ACTIONS.ADD_PRODUCT:
       if (quantity === 0) {
-        return filterProduct(cartProducts, id);
+        return { ...state, cartProducts: filterProduct(cartProducts, id) };
       }
-      return productExists(cartProducts, id)
-        ? increaseProductQuantity(cartProducts, id, quantity)
-        : addProduct(cartProducts, id, quantity);
+      return {
+        ...state,
+        cartProducts: productExists(cartProducts, id)
+          ? increaseProductQuantity(cartProducts, id)
+          : addProduct(cartProducts, id),
+      };
     case ACTIONS.REMOVE_PRODUCT:
-      return filterProduct(cartProducts, id);
+      return { ...state, cartProducts: filterProduct(cartProducts, id) };
+    case ACTIONS.SHOW_CART:
+    case ACTIONS.CLOSE_CART:
     default:
       throw new Error(`No such action type: ${type}`);
   }
 };
 
 const useCart = () => {
-  return useReducer(reducer, []);
+  return useReducer(reducer, { cartProducts: [], showCart: false });
 };
 
 export default useCart;
