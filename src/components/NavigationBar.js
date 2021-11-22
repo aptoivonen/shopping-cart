@@ -16,7 +16,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand className="mb-0 h1" as={NavLink} to="/">
             Awesome T-Shirt Shop
