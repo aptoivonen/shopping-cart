@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import { CartProvider } from "./context/CartContext";
+import NoMatch from "./components/NoMatch";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="shop" element={<Products />} />
+            <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
       </CartProvider>
