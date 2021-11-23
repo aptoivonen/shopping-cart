@@ -83,4 +83,8 @@ const useCart = () => {
   return useReducer(reducer, { cartProducts: [], showCart: false });
 };
 
+export const countNumberOfProducts = (cartProducts) => {
+  return cartProducts.reduce((acc, cur) => acc + cur.quantity, 0);
+};
+
 export default useCart;
