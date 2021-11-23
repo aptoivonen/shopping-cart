@@ -1,31 +1,15 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { ACTIONS } from "../hooks/useCart";
 import DATA from "../data/data";
+import ShopItem from "./ShopItem";
 import { Container } from "react-bootstrap";
 
 const Shop = () => {
-  const { dispatch } = useContext(CartContext);
-
   return (
     <>
       <Container>
         <h1>Shop</h1>
         <ul>
           {DATA.map((product) => (
-            <li key={product.id}>
-              <p>{product.title}</p>
-              <button
-                onClick={() => {
-                  dispatch({
-                    type: ACTIONS.ADD_PRODUCT,
-                    payload: { id: product.id },
-                  });
-                }}
-              >
-                Add to cart
-              </button>
-            </li>
+            <ShopItem key={product.id} product={product} />
           ))}
         </ul>
       </Container>
