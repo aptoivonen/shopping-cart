@@ -4,13 +4,13 @@ import { ACTIONS } from "../hooks/useCart";
 import DATA from "../data/data";
 import { Container } from "react-bootstrap";
 
-const Products = () => {
+const Shop = () => {
   const { dispatch } = useContext(CartContext);
 
   return (
     <>
       <Container>
-        <h1>Products</h1>
+        <h1>Shop</h1>
         <ul>
           {DATA.map((product) => (
             <li key={product.id}>
@@ -33,4 +33,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Shop;
