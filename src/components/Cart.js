@@ -19,7 +19,7 @@ const Cart = () => {
   const emptyCartTemplate = (
     <div>
       <p>Your cart is empty. Add some products to it.</p>
-      <Button as={NavLink} to="/products" variant="primary" onClick={closeCart}>
+      <Button as={NavLink} to="/shop" variant="primary" onClick={closeCart}>
         Go Shopping
       </Button>
     </div>
