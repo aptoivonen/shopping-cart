@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { ACTIONS } from "../hooks/useCart";
 import Cart from "./Cart";
+import CartIcon from "./CartIcon";
 
 const NavigationBar = () => {
   const { dispatch } = useContext(CartContext);
@@ -16,18 +17,20 @@ const NavigationBar = () => {
 
   return (
     <>
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="sm">
         <Container>
           <Navbar.Brand className="mb-0 h1" as={NavLink} to="/">
             Awesome T-Shirt Shop
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="flex-grow-1">
               <Nav.Link as={NavLink} to="/shop">
                 Shop
               </Nav.Link>
-              <Nav.Link onClick={showCart}>Checkout</Nav.Link>
+              <Nav.Link className="ms-sm-auto" onClick={showCart}>
+                <CartIcon />
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
