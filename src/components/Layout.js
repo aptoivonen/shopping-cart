@@ -4,7 +4,7 @@ import NavigationBar from "./NavigationBar";
 const Layout = () => {
   return (
     <>
-      <header className="sticky-top py-1">
+      <header className="sticky-top">
         <NavigationBar />
       </header>
       <main>
