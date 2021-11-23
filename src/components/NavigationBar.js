@@ -25,6 +25,9 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="flex-grow-1">
+              <Nav.Link as={NavLink} to="/">
+                Home
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/shop">
                 Shop
               </Nav.Link>
