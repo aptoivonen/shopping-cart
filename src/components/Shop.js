@@ -6,8 +6,8 @@ import { Container } from "react-bootstrap";
 const Shop = () => {
   return (
     <>
-      <Container>
-        <PageHeading>Awesome T-Shirts.</PageHeading>
+      <Container className="py-5">
+        <PageHeading>Shop</PageHeading>
         <ul>
           {DATA.map((product) => (
             <ShopItem key={product.id} product={product} />
