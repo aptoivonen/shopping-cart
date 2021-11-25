@@ -1,5 +1,6 @@
 import { Button, Col, Container, Figure, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import PageHeading from "./PageHeading";
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
           </Figure>
         </Col>
         <Col lg={6}>
-          <h1 className="display-5 fw-bold lh-1 mb-3">Awesome T-Shirts.</h1>
+          <PageHeading>Awesome T-Shirts.</PageHeading>
           <p className="lead">We make awesome life even awesomer.</p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <Button
