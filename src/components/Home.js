@@ -6,7 +6,6 @@ const Home = () => {
     <Container className="col-xxl-8 py-5">
       <Row className="flex-lg-row-reverse align-items-center g-5 py-5">
         <Col xs={10} sm={8} lg={6}>
-          {/* <Col className="col-10 col-sm-8 col-lg-6"> */}
           <Figure className="d-block mx-lg-auto img-fluid">
             <Figure.Image
               alt="People wearing chilling wearing t-shirts"
