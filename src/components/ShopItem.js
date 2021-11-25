@@ -1,24 +1,21 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { ACTIONS } from "../hooks/useCart";
+import { Card } from "react-bootstrap";
+import { formatAndPrefixCurrency } from "../utils/currency";
 
-const ShopItem = ({ product }) => {
-  const { dispatch } = useContext(CartContext);
+// TODO: make image height responsive, > 500px xs-breakpoint
 
+const ShopItem = ({ product: { id, title, description, img, price } }) => {
   return (
-    <li>
-      <p>{product.title}</p>
-      <button
-        onClick={() => {
-          dispatch({
-            type: ACTIONS.ADD_PRODUCT,
-            payload: { id: product.id },
-          });
-        }}
-      >
-        Add to cart
-      </button>
-    </li>
+    <Card>
+      <Card.Img
+        variant="top"
+        src={img}
+        style={{ height: 500, objectFit: "cover" }}
+      />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{formatAndPrefixCurrency(price)}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
