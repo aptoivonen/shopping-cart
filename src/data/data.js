@@ -1,4 +1,4 @@
-const IMAGE_WIDTH = 200;
+const IMAGE_WIDTH = 400;
 
 const data = [
   {
