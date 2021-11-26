@@ -32,3 +32,5 @@ const data = [
 ];
 
 export default data;
+
+export const getProduct = (id) => data.find((product) => product.id === id);
