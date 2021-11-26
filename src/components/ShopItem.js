@@ -5,7 +5,7 @@ import "./ShopItem.scss";
 
 const ShopItem = ({ product: { id, title, img, price } }) => {
   return (
-    <Link className="text-decoration-none text-reset" to="">
+    <Link className="text-decoration-none text-reset" to={`/shop/${id}`}>
       <Card>
         <Card.Img className="shop-card-image" variant="top" src={img} />
         <Card.Body>

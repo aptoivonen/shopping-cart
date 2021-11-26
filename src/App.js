@@ -13,9 +13,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="shop" element={<Shop products={DATA} />}>
-            <Route path=":productId" element={<Product />} />
-          </Route>
+          <Route path="shop" element={<Shop products={DATA} />} />
+          <Route path="shop/:productId" element={<Product />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
