@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
+import Product from "./components/Product";
 import NoMatch from "./components/NoMatch";
 import { CartProvider } from "./context/CartContext";
 
@@ -13,6 +14,7 @@ function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop products={DATA} />}>
+            <Route path=":productId" element={<Product />} />
           </Route>
           <Route path="*" element={<NoMatch />} />
         </Route>
