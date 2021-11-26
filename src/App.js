@@ -1,3 +1,4 @@
+import DATA from "./data/data";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop" element={<Shop products={DATA} />}>
+          </Route>
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
