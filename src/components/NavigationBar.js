@@ -1,10 +1,10 @@
 import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { ACTIONS } from "../hooks/useCart";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
-import { ACTIONS } from "../hooks/useCart";
 import Cart from "./Cart";
 import CartIcon from "./CartIcon";
 
@@ -31,7 +31,10 @@ const NavigationBar = () => {
               <Nav.Link as={NavLink} to="/shop">
                 Shop
               </Nav.Link>
-              <Nav.Link className="ms-sm-auto" onClick={showCart}>
+              <Nav.Link
+                className="d-flex align-items-center ms-sm-auto"
+                onClick={showCart}
+              >
                 <CartIcon />
               </Nav.Link>
             </Nav>
