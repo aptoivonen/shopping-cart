@@ -4,7 +4,12 @@ import { ACTIONS } from "../hooks/useCart";
 import { getProduct } from "../data/data";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { formatAndPrefixCurrency } from "../utils/currency";
 
 const Product = () => {
@@ -35,6 +40,7 @@ const Product = () => {
                 <Card.Text>{formatAndPrefixCurrency(price)}</Card.Text>
                 <Card.Text>{description}</Card.Text>
                 <Button
+                  className="text-uppercase"
                   variant="outline-primary"
                   size="lg"
                   type="button"
