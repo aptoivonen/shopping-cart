@@ -22,8 +22,8 @@ const Product = () => {
     <>
       <Container className="py-4">
         <Breadcrumb>
-          <Breadcrumb.Item>
-            <Link to="/shop">Shop</Link>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/shop" }}>
+            Shop
           </Breadcrumb.Item>
           <Breadcrumb.Item active>{title}</Breadcrumb.Item>
         </Breadcrumb>
