@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { formatAndPrefixCurrency } from "../utils/currency";
 import "./ShopItem.scss";
