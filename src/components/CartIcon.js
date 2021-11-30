@@ -2,8 +2,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { countNumberOfProducts } from "../hooks/useCart";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import "./CartIcon.scss";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const pluralPrefix = (numberOfThings) => (numberOfThings > 1 ? "s" : "");
 
