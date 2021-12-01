@@ -24,5 +24,6 @@ App logic was realized with React Context API and useReducer.
 
 ## Lessons Learned
 
+- React Router's BrowserRouter was changed to HashRouter for gh-pages.
 - React Bootstrap Tooltip bug: it remains visible after cart opens on mobile devices.
 - PurgeCss does not work with React Bootstrap unless explicit classnames are used. Its use was abandoned in this project.
