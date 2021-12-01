@@ -14,11 +14,11 @@ App logic was realized with React Context API and useReducer.
 
 ## Assets
 
-- Unsplash (Images)
+- Unsplash.com (Images)
 - React Icons
 - Favicon.io (favicon)
 
-## Desing Inspiration
+## Design Inspiration
 
 - Webflow.com templates
 
